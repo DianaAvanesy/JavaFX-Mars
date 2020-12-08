@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/sample.fxml"));
         //primaryStage.setTitle("Hello World");
         //primaryStage.setScene(new Scene(root));
 
@@ -19,7 +17,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add("Views/styles.css");
         primaryStage.setScene(scene);
-        Image icon = new Image("/sample/mars.png");
+        Image icon = new Image("/mars.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("  MARS  ");
         primaryStage.show();
