@@ -10,13 +10,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Views/sample.fxml"));
-        //primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("Views/searchNASAView.fxml"));
         //primaryStage.setScene(new Scene(root));
-
-
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add("Views/styles.css");
+        scene.getStylesheets().add("Views/styles.css");
         primaryStage.setScene(scene);
         Image icon = new Image("/mars.png");
         primaryStage.getIcons().add(icon);
@@ -30,7 +27,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
+        launch(args);
         try
         {
             APIUtility.callNasaAPI("&page=1");
@@ -38,10 +35,8 @@ public class Main extends Application {
         catch (Exception e)
         {
             e.printStackTrace();
-
-
         }
 
-        //launch(args);
+
     }
 }
