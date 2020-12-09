@@ -26,7 +26,7 @@ public class APIUtility {
      */
     public static NASAJsonResponse callNasaAPI(String searchText) throws IOException, InterruptedException {
         String jsonLocation = "src/Utilities/photosInfo.json";
-        String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY" +searchText;
+        String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Cb8t7qeUST3IvXiY8IUJud7rmGjzBmbele3IYlzW" +searchText;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
 

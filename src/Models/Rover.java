@@ -2,7 +2,8 @@ package Models;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Rover {
 
@@ -64,4 +65,20 @@ public class Rover {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public static TreeSet<Camera> getAllAvailibleRovers(List<PhotoUnit> units){
+        TreeSet<Camera> allRovers = new TreeSet<Camera>();
+        for (PhotoUnit photoUnit: units) {
+            Camera camera = photoUnit.getCamera();
+            allRovers.add(camera);
+        }
+        //List<String> list = new ArrayList<String>(allRovers);
+        return  allRovers;
+
+    }
+
+      public String toString(){
+         return name;
+      }
+
 }

@@ -2,6 +2,9 @@ package Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.FormatStyle;
 import java.util.Date;
 
 public class PhotoUnit {
@@ -75,6 +78,13 @@ public class PhotoUnit {
 
     public void setRover(Rover rover) {
         this.rover = rover;
+    }
+
+    public String toString(){
+        //date = getDate();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = formatter.format(date);
+        return "[ " +Integer.toString(id) + "]  " + getCamera().getFullName() + ": " +strDate;
     }
 }
 
