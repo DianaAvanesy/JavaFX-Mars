@@ -14,7 +14,7 @@ public class PhotoUnit {
 
     private Camera camera;
 
-    @SerializedName("img_scr")
+    @SerializedName("img_src")
     private String imgSource;
 
     @SerializedName("earth_date")
@@ -82,9 +82,9 @@ public class PhotoUnit {
 
     public String toString(){
         //date = getDate();
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        String strDate = formatter.format(date);
-        return "[ " +Integer.toString(id) + "]  " + getCamera().getFullName() + ": " +strDate;
+        //SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        //String strDate = formatter.format(date);
+        return "[ " +Integer.toString(id) + "]  " + getCamera().getFullName();
     }
 }
 

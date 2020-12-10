@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="793.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SearchNASAViewController">
    <children>
@@ -10,23 +11,27 @@
          <image>
             <Image url="@mars-planet.png" />
          </image></ImageView>
-      <VBox layoutX="3.0" layoutY="45.0" prefHeight="493.0" prefWidth="784.0" spacing="20.0">
+      <VBox layoutX="3.0" layoutY="64.0" prefHeight="474.0" prefWidth="784.0" spacing="20.0">
          <children>
-            <AnchorPane prefHeight="137.0" prefWidth="779.0">
+            <AnchorPane prefHeight="142.0" prefWidth="784.0">
                <children>
                   <Button fx:id="searchButton" layoutX="590.0" layoutY="97.0" mnemonicParsing="false" onAction="#getPictureUnits" prefHeight="30.0" prefWidth="140.0" text="Search" />
-                  <Label layoutX="46.0" layoutY="75.0" text="Date" />
+                  <Label layoutX="46.0" layoutY="75.0" text="Date" textFill="WHITE" />
                   <DatePicker fx:id="datePicker" layoutX="110.0" layoutY="67.0" prefHeight="30.0" prefWidth="173.0" />
-                  <Label layoutX="46.0" layoutY="27.0" text="Camera" />
+                  <Label layoutX="46.0" layoutY="27.0" text="Camera" textFill="WHITE" />
                   <ComboBox fx:id="comboBox" layoutX="110.0" layoutY="22.0" prefHeight="30.0" prefWidth="173.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="313.0" prefWidth="784.0">
                <children>
-                  <ListView fx:id="listView" layoutX="26.0" layoutY="18.0" prefHeight="311.0" prefWidth="705.0" />
+                  <ListView fx:id="listView" layoutX="68.0" layoutY="6.0" prefHeight="285.0" prefWidth="603.0" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
+      <Label layoutX="252.0" layoutY="17.0" text="Mars Curiosity Rover Photos" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="21.0" />
+         </font></Label>
    </children>
 </AnchorPane>

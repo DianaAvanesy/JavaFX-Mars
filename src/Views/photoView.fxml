@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="793.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PhotoViewController">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="503.0" fitWidth="474.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="goBackButton" layoutX="558.0" layoutY="496.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="115.0" text="Go Back" />
+   </children>
+</AnchorPane>

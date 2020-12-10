@@ -5,9 +5,17 @@ import Models.NASAJsonResponse;
 import Models.PhotoUnit;
 import Models.Rover;
 import Utilities.APIUtility;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,12 +26,12 @@ import java.util.*;
 
 public class SearchNASAViewController implements Initializable {
 
+
     @FXML
     private ListView<PhotoUnit> listView;
 
     @FXML
     private Button searchButton;
-
 
     @FXML
     private ComboBox<Camera> comboBox;
@@ -34,7 +42,7 @@ public class SearchNASAViewController implements Initializable {
     @FXML
     private void getPictureUnits(){
 
-        //String searchURL = searchTextField.getText();
+
         String search = "" ;
         String camera = null;
         LocalDate date = null;
@@ -52,7 +60,6 @@ public class SearchNASAViewController implements Initializable {
         }
 
 
-
         listView.getItems().clear();
         try {
             NASAJsonResponse response = APIUtility.callNasaAPI(search);
@@ -68,7 +75,6 @@ public class SearchNASAViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBox.setPromptText("Select Camera");
-
         NASAJsonResponse response = null;
         List<PhotoUnit> photoUnits = null;
         try {
@@ -82,11 +88,50 @@ public class SearchNASAViewController implements Initializable {
         catch (NullPointerException e ){
             e.printStackTrace();
         }
-
         HashSet<Camera> options =  Camera.getAllAvailibleRovers(photoUnits);
-       // options.so
         comboBox.getItems().addAll(options);
+
+        listView.getSelectionModel().selectedItemProperty().addListener(
+                (obs, value, selected) -> {
+                    try {
+                        changeToDetailsView(selected);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+        );
+
+    }
+
+    @FXML
+    void changeToDetailsView(PhotoUnit photoUnit) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/Views/photoView.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+
+        scene.getStylesheets().add("Views/styles.css");
+        Stage primaryStage = (Stage) listView.getScene().getWindow();
+        primaryStage.setScene(scene);
+
+        //access the controller
+        PhotoViewController controller = loader.getController();
+        controller.initData(photoUnit);
+
+
+
+
+        Image icon = new Image("/mars.png");
+        primaryStage.getIcons().add(icon);
+        primaryStage.setTitle("  MARS  ");
+        primaryStage.show();
 
 
     }
+
+
+
 }
