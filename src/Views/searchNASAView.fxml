@@ -58,7 +58,7 @@
                         </LinearGradient>
                      </textFill></Label>
                   <ComboBox fx:id="comboBox" layoutX="311.0" layoutY="44.0" prefHeight="30.0" prefWidth="173.0" />
-                  <Button fx:id="searchButton" layoutX="554.0" layoutY="72.0" mnemonicParsing="false" onAction="#getPictureUnits" prefHeight="30.0" prefWidth="118.0" text="Search">
+                  <Button fx:id="searchButton" layoutX="545.0" layoutY="80.0" mnemonicParsing="false" onAction="#getPictureUnits" prefHeight="30.0" prefWidth="118.0" text="Search">
                      <font>
                         <Font name="Bauhaus 93" size="20.0" />
                      </font>
@@ -78,22 +78,27 @@
                            </stops>
                         </LinearGradient>
                      </textFill></Button>
-                  <ImageView fitHeight="132.0" fitWidth="118.0" layoutX="14.0" layoutY="-41.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="74.0" fitWidth="89.0" layoutX="97.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/NASA.png" />
                      </image>
                   </ImageView>
+                  <Label layoutX="112.0" layoutY="81.0" text="using {NASA API }">
+                     <font>
+                        <Font name="Bauhaus 93" size="9.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="323.0" prefWidth="784.0">
                <children>
                   <ListView fx:id="listView" layoutX="87.0" layoutY="8.0" prefHeight="262.0" prefWidth="585.0" />
-                  <ImageView fitHeight="115.0" fitWidth="265.0" layoutX="524.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="115.0" fitWidth="265.0" layoutX="530.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/curiosity-rover.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="instructionsLabel" layoutX="159.0" layoutY="269.0" prefHeight="19.0" prefWidth="378.0" text="To see the picture please select one from the list" textFill="WHITE">
+                  <Label fx:id="instructionsLabel" layoutX="170.0" layoutY="269.0" prefHeight="19.0" prefWidth="378.0" text="To see the picture please select one from the list" textFill="#a3a3a3">
                      <font>
                         <Font name="Bauhaus 93" size="17.0" />
                      </font></Label>
@@ -101,29 +106,30 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Label layoutX="56.0" layoutY="98.0" text="using {NASA API }">
-         <font>
-            <Font name="Bauhaus 93" size="9.0" />
-         </font></Label>
-      <Label layoutX="193.0" layoutY="29.0" text="Mars Curiosity Rover Photos">
-         <font>
-            <Font name="Bauhaus 93" size="32.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="0.46904761904761905" endY="0.5452380952380953" startX="0.4666666666666666" startY="0.1261904761904762">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
+      <VBox layoutX="193.0" layoutY="29.0">
+         <children>
+            <Label fx:id="titleLabel" text="Mars Curiosity Rover Photos">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.46904761904761905" endY="0.5452380952380953" startX="0.4666666666666666" startY="0.1261904761904762">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

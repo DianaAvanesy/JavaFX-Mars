@@ -36,6 +36,9 @@ public class SearchNASAViewController implements Initializable {
     @FXML
     private  Label instructionsLabel;
 
+    @FXML
+    private Label titleLabel;
+
     /**
      * This method gets called when button searchButton pressed
      * The method creates a string that will be used to call API based on the parameter(s) provided by user
@@ -45,7 +48,6 @@ public class SearchNASAViewController implements Initializable {
         String search = "" ;
         String camera = null;
         LocalDate date = null;
-
 
         if(comboBox.getValue() != null){
             camera = comboBox.getValue().toString();}

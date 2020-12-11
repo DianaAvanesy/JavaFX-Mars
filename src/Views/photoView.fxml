@@ -22,7 +22,7 @@
          </image></ImageView>
       <AnchorPane layoutX="513.0" layoutY="25.0" prefHeight="196.0" prefWidth="255.0">
          <children>
-            <Label alignment="CENTER" layoutX="68.0" layoutY="85.0" prefHeight="27.0" prefWidth="154.0" text="Camera: " textAlignment="RIGHT" textFill="WHITE">
+            <Label fx:id="cameraTitleLabel" alignment="CENTER" layoutX="68.0" layoutY="85.0" prefHeight="27.0" prefWidth="154.0" text="Camera: " textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="18.0" />
                </font></Label>
@@ -30,7 +30,7 @@
                <font>
                   <Font name="Bauhaus 93" size="18.0" />
                </font></Label>
-            <Label layoutX="64.0" layoutY="22.0" text="Date of the picture:" textFill="WHITE">
+            <Label fx:id="dateTitleLabel" layoutX="64.0" layoutY="22.0" text="Date of the picture:" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="18.0" />
                </font></Label>

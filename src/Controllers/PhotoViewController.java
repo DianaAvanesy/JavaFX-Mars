@@ -48,12 +48,9 @@ public class PhotoViewController implements Initializable {
        // url = url.replace("http://", "https://");
         imageView.setImage(new Image(url));
         cameraLabel.setText(selectedPhotoUnit.getCamera().getName());
-
         Date date = selectedPhotoUnit.getDate();
-
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         String strDate = formatter.format(date);
-
         dateLabel.setText(strDate);
     }
 

@@ -4,8 +4,16 @@
     -fx-font-family: "Bauhaus 93";
 
 }
-#comboBox, #datePicker{
+#comboBox, #datePicker,#searchButton{
     -fx-font-size: 16;
+}
+
+#titleLabel{
+    -fx-font-size: 32;
+}
+
+#cameraTitleLabel, #dateTitleLabel, #cameraLabel, #dateLabel{
+    -fx-font-size: 18;
 }
 
 
