@@ -3,24 +3,18 @@ package Controllers;
 import Models.Camera;
 import Models.NASAJsonResponse;
 import Models.PhotoUnit;
-import Models.Rover;
 import Utilities.APIUtility;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -40,12 +34,18 @@ public class SearchNASAViewController implements Initializable {
     private DatePicker datePicker;
 
     @FXML
+    private  Label instructionsLabel;
+
+    /**
+     * This method gets called when button searchButton pressed
+     * The method creates a string that will be used to call API based on the parameter(s) provided by user
+     */
+    @FXML
     private void getPictureUnits(){
-
-
         String search = "" ;
         String camera = null;
         LocalDate date = null;
+
 
         if(comboBox.getValue() != null){
             camera = comboBox.getValue().toString();}
@@ -59,7 +59,6 @@ public class SearchNASAViewController implements Initializable {
             search = search + "&camera=" + camera;
         }
 
-
         listView.getItems().clear();
         try {
             NASAJsonResponse response = APIUtility.callNasaAPI(search);
@@ -72,6 +71,16 @@ public class SearchNASAViewController implements Initializable {
         }
 
     }
+
+
+    /**
+     * This method initialize the SearchNASAView
+     * part of initialization this method
+     *     gets all availible Cameras from API and puts it in combobox for user to select from
+     *     sets a listener on the tableView
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBox.setPromptText("Select Camera");
@@ -88,7 +97,7 @@ public class SearchNASAViewController implements Initializable {
         catch (NullPointerException e ){
             e.printStackTrace();
         }
-        HashSet<Camera> options =  Camera.getAllAvailibleRovers(photoUnits);
+        HashSet<Camera> options =  Camera.getAllAvailibleCameras(photoUnits);
         comboBox.getItems().addAll(options);
 
         listView.getSelectionModel().selectedItemProperty().addListener(
@@ -104,6 +113,13 @@ public class SearchNASAViewController implements Initializable {
 
     }
 
+    /**
+     * This method gets called when Listener on listView from initialize method gets triggered
+     * The method changes the scene to photoView and by directly accessing the PhotoViewController passes information
+     * about selected photoUnit
+     * @param photoUnit - selected unit
+     * @throws IOException
+     */
     @FXML
     void changeToDetailsView(PhotoUnit photoUnit) throws IOException {
 
@@ -121,10 +137,7 @@ public class SearchNASAViewController implements Initializable {
         PhotoViewController controller = loader.getController();
         controller.initData(photoUnit);
 
-
-
-
-        Image icon = new Image("/mars.png");
+        Image icon = new Image("/img/mars.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("  MARS  ");
         primaryStage.show();

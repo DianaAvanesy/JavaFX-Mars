@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("Views/styles.css");
         primaryStage.setScene(scene);
-        Image icon = new Image("/mars.png");
+        Image icon = new Image("/img/mars.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("  MARS  ");
         primaryStage.show();

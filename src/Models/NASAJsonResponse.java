@@ -8,7 +8,7 @@ public class NASAJsonResponse {
     private PhotoUnit[] results;
 
     public NASAJsonResponse(PhotoUnit[] results) {
-        this.results = results;
+        setResults(results);
     }
 
     public PhotoUnit[] getResults() {

@@ -37,7 +37,11 @@ public class PhotoUnit {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new IllegalArgumentException("Photo id should be more then 0. Not: " + id);
+        }
     }
 
     public int getSol() {
@@ -45,7 +49,10 @@ public class PhotoUnit {
     }
 
     public void setSol(int sol) {
-        this.sol = sol;
+        if(sol == 1000){
+        this.sol = sol;}
+        else
+            throw new IllegalArgumentException("sol should be 1000. Not: " + id);
     }
 
     public Camera getCamera() {
@@ -61,6 +68,8 @@ public class PhotoUnit {
     }
 
     public void setImgSource(String imgSource) {
+
+
         this.imgSource = imgSource;
     }
 
@@ -81,9 +90,7 @@ public class PhotoUnit {
     }
 
     public String toString(){
-        //date = getDate();
-        //SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        //String strDate = formatter.format(date);
+
         return "[ " +Integer.toString(id) + "]  " + getCamera().getFullName();
     }
 }
