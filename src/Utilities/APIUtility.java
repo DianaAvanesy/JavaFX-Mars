@@ -22,25 +22,22 @@ import java.util.ArrayList;
 public class APIUtility {
 
     /**
-     * This method will recieve photos String and send it to NASAJSONResponse
+     * This method will return NASAJsonResponse object based on the API call( that consist of default uri and
+     * searchText that being pass to this method as a String parameter
      */
     public static NASAJsonResponse callNasaAPI(String searchText) throws IOException, InterruptedException {
         String jsonLocation = "src/Utilities/photosInfo.json";
         String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Cb8t7qeUST3IvXiY8IUJud7rmGjzBmbele3IYlzW" +searchText;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
-
         HttpResponse<Path> response = client.send(request, HttpResponse.BodyHandlers.ofFile(Paths.get(jsonLocation)));
-
         NASAJsonResponse photosResponse = getPhotosFromJSON(new File(jsonLocation));
-
         return photosResponse;
 
     }
 
     /**
-     * This method recives JSON file, extracts photos data and
-     * saves it in NASAJSONResponse
+     * This method recives a JSON file, extract data and return it as a NASAJSONResponse object
      * @param file - json file
      * @return
      */

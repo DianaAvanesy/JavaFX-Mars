@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="525.0" fitWidth="552.0" layoutX="110.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@mars-planet.png" />
+            <Image url="@../img/mars-planet.png" />
          </image></ImageView>
       <VBox layoutX="3.0" layoutY="64.0" prefHeight="474.0" prefWidth="784.0" spacing="20.0">
          <children>

@@ -1,6 +1,7 @@
 package Models;
 
 import com.google.gson.annotations.SerializedName;
+import javafx.scene.image.Image;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -23,12 +24,12 @@ public class PhotoUnit {
     private Rover rover;
 
     public PhotoUnit(int id, int sol, Camera camera, String imgSource, Date date, Rover rover) {
-        this.id = id;
-        this.sol = sol;
-        this.camera = camera;
-        this.imgSource = imgSource;
-        this.date = date;
-        this.rover = rover;
+        setId(id);
+        setSol(sol);
+        setCamera(camera);
+        setImgSource(imgSource);
+        setDate(date);
+        setRover(rover);
     }
 
 
@@ -36,6 +37,10 @@ public class PhotoUnit {
         return id;
     }
 
+    /**
+     * This method sets id and makes sure that the id is greater then 0
+     * @param id
+     */
     public void setId(int id) {
         if (id > 0) {
             this.id = id;
@@ -48,6 +53,10 @@ public class PhotoUnit {
         return sol;
     }
 
+    /**
+     * This methid sets sol and makes sure that sol is equals to 1000
+     * @param sol
+     */
     public void setSol(int sol) {
         if(sol == 1000){
         this.sol = sol;}
@@ -63,22 +72,48 @@ public class PhotoUnit {
         this.camera = camera;
     }
 
+    /**
+     * Method returns url with https at the begining of the url
+     * Just in case if setter failed to set the link correctly
+     * @return
+     */
     public String getImgSource() {
-        return imgSource;
+        return imgSource.replace("http://", "https://");
+
     }
 
-    public void setImgSource(String imgSource) {
-
-
-        this.imgSource = imgSource;
+    /**
+     * Method sets the url and making sure the url have https at the beggining
+     * @param imgSourceB
+     */
+    public void setImgSource(String imgSourceB) {
+        if(imgSourceB.contains("http://")){
+            String imgSourceFixed = imgSourceB.replace("http://", "https://");
+            this.imgSource = imgSourceFixed;
+        }
+        else if (imgSourceB.contains("https://")){
+            this.imgSource = imgSourceB;
+        }
+        else
+            throw new IllegalArgumentException("Please make sure the picture URL starts from https:// or http://");
     }
 
     public Date getDate() {
         return date;
     }
 
+    /**
+     * This setter makes sure that the date of the picture is not before the landing date,
+     * otherwise throw an Exception
+     * @param date
+     */
     public void setDate(Date date) {
-        this.date = date;
+        if(date.after(new Date(2012,8,6))){
+            this.date = date;
+        }
+        else
+            throw new IllegalArgumentException("Please make sure the date of the photo after 2012.08.06");
+
     }
 
     public Rover getRover() {
@@ -89,9 +124,13 @@ public class PhotoUnit {
         this.rover = rover;
     }
 
+    /**
+     * Overriding toString method to display objects in the table with a human readble names
+     * @return String representation of the object
+     */
+    @Override
     public String toString(){
-
-        return "[ " +Integer.toString(id) + "]  " + getCamera().getFullName();
+        return "[ id: " +Integer.toString(id) + "]  " + getCamera().getFullName();
     }
 }
 

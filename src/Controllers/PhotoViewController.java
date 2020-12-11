@@ -45,7 +45,7 @@ public class PhotoViewController implements Initializable {
     public void initData(PhotoUnit photoUnit){
         selectedPhotoUnit = photoUnit;
         String url = selectedPhotoUnit.getImgSource();
-        url = url.replace("http://", "https://");
+       // url = url.replace("http://", "https://");
         imageView.setImage(new Image(url));
         cameraLabel.setText(selectedPhotoUnit.getCamera().getName());
 
@@ -63,7 +63,6 @@ public class PhotoViewController implements Initializable {
         SceneAndStage.setScene1(e, root);
 
     }
-
 
 
     /**
